@@ -198,6 +198,8 @@ st.markdown("""
     Upload a rose image and let the deep learning model classify its category.
     <br>
     Not the perfect model, may give inaccurate results, specially for 'Pink' flowers.
+    <br>
+    Supported Rose Types Are 'Pink', 'Yellow', 'White' & 'Red'.
 </div>
 """, unsafe_allow_html=True)
 
