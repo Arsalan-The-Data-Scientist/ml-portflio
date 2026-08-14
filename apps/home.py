@@ -1,49 +1,14 @@
 import streamlit as st
 
 # ==========================================
-# PAGE CONFIG
-# ==========================================
-
-st.set_page_config(
-    page_title="Arslan Ahmad | AI Portfolio",
-    page_icon="⚡",
-    layout="wide"
-)
-
-# ==========================================
-# STYLES
+# PAGE-SPECIFIC STYLES
 # ==========================================
 
 st.markdown("""
 <style>
-/* Import Poppins Font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-
-/* Apply Poppins globally */
-* {
-    font-family: 'Poppins', sans-serif !important;
-}
-
-/* Hide Streamlit UI */
-#MainMenu {visibility:hidden;}
-footer {visibility:hidden;}
-header {visibility:hidden;}
-
-/* Main app */
-.stApp {
-    background: #09090B;
-}
-
-/* Width */
-.block-container {
-    max-width: 1200px;
-    padding-top: 2rem;
-    padding-bottom: 4rem;
-}
-
 /* Hero Section */
 .hero {
-    padding-top: 100px;
+    padding-top: 60px;
     padding-bottom: 80px;
     animation: fadeIn 1.2s ease-in-out;
 }
@@ -267,9 +232,9 @@ header {visibility:hidden;}
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
-
 </style>
 """, unsafe_allow_html=True)
+
 
 # ==========================================
 # HERO
