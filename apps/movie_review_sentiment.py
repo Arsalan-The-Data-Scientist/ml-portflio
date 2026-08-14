@@ -120,6 +120,7 @@ def encode_and_pad(tokens):
 # --- 5. STREAMLIT UI LAYOUT ---
 st.title("Sentiment Analysis Engine")
 st.write("Powered by a custom Deep Learning GRU Architecture.")
+st.write("Note : Not The Perfect Model, Can Make Mistakes & Provide Inaccurate Results.")
 
 user_review = st.text_area("Enter a movie review to analyze:", height=150, placeholder="Type your review here...")
 
