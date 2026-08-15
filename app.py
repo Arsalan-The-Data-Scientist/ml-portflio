@@ -53,9 +53,10 @@ header {visibility:hidden;}
 home_page = st.Page("apps/home.py", title="Home", default=True)
 cnn_page = st.Page("apps/rose_classifier.py", title="Rose Classifier")
 movie_review_sentiment_page = st.Page("apps/movie_review_sentiment.py", title="Movie Review Sentiment")
+fake_news_prediction_page = st.Page("apps/fake_news_prediction.py", title="Fake News")
 
 # 4. Hide the default sidebar menu by setting position="hidden"
-pg = st.navigation([home_page, cnn_page, movie_review_sentiment_page], position="hidden")
+pg = st.navigation([home_page, cnn_page, movie_review_sentiment_page, fake_news_prediction_page], position="hidden")
 
 # 5. Create the Custom Top Navigation Bar
 st.markdown("<div style='margin-bottom: 15px;'></div>", unsafe_allow_html=True)
@@ -67,6 +68,8 @@ with nav_cols[1]:
     st.page_link(cnn_page)
 with nav_cols[2]:
     st.page_link(movie_review_sentiment_page)
+with nav_cols[3]:
+    st.page_link(fake_news_prediction_page)
 
 # 6. Run selected page
 pg.run()
