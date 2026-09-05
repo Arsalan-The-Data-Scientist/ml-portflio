@@ -5,7 +5,7 @@ import streamlit as st
 # ============================================================
 
 st.set_page_config(
-    page_title="Arslan Ahmad | AI Portfolio",
+    page_title="Arsalan Ahmad | AI Portfolio",
     page_icon="⚡",
     layout="wide",
     initial_sidebar_state="collapsed"
@@ -364,7 +364,7 @@ with nav_cols[0]:
         """
         <div class="brand-logo">
             <div class="brand-dot"></div>
-            ARSLAN AHMAD
+            ARSALAN AHMAD
         </div>
         """,
         unsafe_allow_html=True
