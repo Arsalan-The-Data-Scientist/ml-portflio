@@ -1,12 +1,11 @@
 import streamlit as st
-
+from pathlib import Path
 # ============================================================
 # 1. PAGE CONFIGURATION
 # ============================================================
 
 st.set_page_config(
     page_title="Arsalan Ahmad | AI Portfolio",
-    page_icon="⚡",
     layout="wide",
     initial_sidebar_state="collapsed"
 )
@@ -346,9 +345,10 @@ cnn_page = st.Page("apps/Rose Type Classifier/rose_classifier.py", title="Rose C
 resnet50_food_page = st.Page("apps/ResNet Food Image Classification/ResNet50_Food_Classifier.py", title="Food Classifier")
 movie_review_page = st.Page("apps/Movie Review Sentiment/movie_review_sentiment.py", title="Movie Sentiment")
 fake_news_page = st.Page("apps/Fake News Prediction/fake_news_prediction.py", title="Fake News Detector")
+resnet101_plant_leaf_disease_page = st.Page("apps/ResNet Plant Leaf Disease Detection/ResNet101_plant_leaf_disease_detector.py", title="Plant Disease Detector")
 
 pg = st.navigation(
-    [home_page, cnn_page, resnet50_food_page, movie_review_page, fake_news_page],
+    [home_page, cnn_page, resnet50_food_page, movie_review_page, fake_news_page, resnet101_plant_leaf_disease_page],
     position="hidden"
 )
 
@@ -379,8 +379,9 @@ with nav_cols[2]:
         st.caption("Computer Vision")
         st.page_link(cnn_page, label="Rose Classifier")
         st.page_link(resnet50_food_page, label="ResNet-50 Food")
+        st.page_link(resnet101_plant_leaf_disease_page, label="ResNet-101 Plant Disease")
         st.divider()
-        st.caption("Natural Language Processing")
+        st.caption("NLP")
         st.page_link(movie_review_page, label="Movie Sentiment")
         st.page_link(fake_news_page, label="Fake News")
 
@@ -424,16 +425,20 @@ if pg == home_page:
         unsafe_allow_html=True
     )
 
+    path = Path('./apps')
+
+    dir_count = sum(1 for item in path.iterdir() if item.is_dir())
+
     # --- METRICS STRIP ---
     st.markdown(
-        """
+        f"""
         <div class="metrics-grid">
             <div class="metric-card">
-                <div class="metric-value">04</div>
+                <div class="metric-value">{dir_count - 1}</div>
                 <div class="metric-label">Deployed AI Models</div>
             </div>
             <div class="metric-card">
-                <div class="metric-value">ResNet-50</div>
+                <div class="metric-value">ResNet</div>
                 <div class="metric-label">Vision Backbone</div>
             </div>
             <div class="metric-card">
@@ -466,21 +471,21 @@ if pg == home_page:
             """
             <div class="project-card">
                 <div>
-                    <span class="card-tag">CNN / PyTorch</span>
-                    <div class="card-title">Rose Type Classifier</div>
+                    <span class="card-tag">Transfer Learning</span>
+                    <div class="card-title">ResNet-101 Leaf Disease Classifier</div>
                     <div class="card-desc">
-                        Custom Convolutional Neural Network trained to classify multi-class rose varieties with visual feature extraction and confidence scoring.
+                        Deep residual network fine-tuned on defected leaves dataset to recognize diverse kind of diseases with high top-1 and top-5 accuracy metrics.
                     </div>
                 </div>
                 <div class="card-footer">
-                    <span class="tech-pill">Image Classification</span>
-                    <span class="tech-pill">CNN</span>
+                    <span class="tech-pill">ResNet-101</span>
+                    <span class="tech-pill">PyTorch</span>
                 </div>
             </div>
             """,
             unsafe_allow_html=True
         )
-        st.page_link(cnn_page, label="Launch Model Demo →", use_container_width=True)
+        st.page_link(resnet101_plant_leaf_disease_page, label="Launch Model Demo →", use_container_width=True)
 
     with cv_col2:
         st.markdown(
